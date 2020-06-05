@@ -63,8 +63,13 @@ extension ViewController: CLLocationManagerDelegate {
         self.vanillaMapView.setRegion(coordinateRegion, animated: true)
         
         //locationManager.stopUpdatingLocation()
+        print("--------- Coordinator: %@", currentLocation)
         
-        print("------------- %s", currentLocation)
+        let pos = PositionInfo();
+        pos.longtitude = currentLocation.longitude
+        pos.latititude = currentLocation.latitude
+        pos.posTime = NSDate()
+        VanillaDataManager.sharedInstance.addNewPosition(pos)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
