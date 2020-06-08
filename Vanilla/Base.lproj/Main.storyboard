@@ -64,6 +64,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="sendLogButton" destination="zWI-8W-Rtb" id="Fid-wE-eby"/>
                         <outlet property="vanillaMapView" destination="vih-Rg-lFm" id="RbO-qV-o6O"/>
                     </connections>
                 </viewController>

@@ -8,11 +8,14 @@
 
 import UIKit
 import MapKit
+import os.log
 
 class ViewController: UIViewController {
     @IBOutlet weak var vanillaMapView: MKMapView!
+    @IBOutlet weak var sendLogButton: UIButton!
     
     var polyline: MKPolyline?
+    var log: OSLog?
     
     fileprivate let locationManager: CLLocationManager = {
         let manager = CLLocationManager()
@@ -23,6 +26,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.log = OSLog.init(subsystem: "com.montre.duoveo.log", category: "Terra_Log")
+        
+        self.sendLogButton.isHidden = true
         setupMapView()
     }
     
@@ -90,6 +96,7 @@ class ViewController: UIViewController {
 
 }
 
+//MARK: - MKMapViewDelegate method
 extension ViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -102,7 +109,8 @@ extension ViewController: MKMapViewDelegate {
             return polylineRenderer
         }
         
-        return MKPolylineRenderer()
+        fatalError("Something wrong...")
+        //return MKPolylineRenderer()
     }
     
 }
@@ -116,7 +124,14 @@ extension ViewController: CLLocationManagerDelegate {
         self.vanillaMapView.setRegion(coordinateRegion, animated: true)
         
         
-        print("--------- Coordinator: %@", currentLocation)
+        //print("--------- Coordinator: %@", currentLocation)
+        
+//        if #available(iOS 12.0, *) {
+//            os_log(.info, log: self.log ?? OSLog.default, "Latitude: %f - Longitude: %f", currentLocation.latitude, currentLocation.longitude)
+//        } else {
+//            // Fallback on earlier versions
+//        }
+        os_log("--------- Coordinator")
         
         let pos = PositionInfo();
         pos.longtitude = currentLocation.longitude
@@ -126,7 +141,7 @@ extension ViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("---------- error: %s", error.localizedDescription)
+        //print("---------- error: %s", error.localizedDescription)
     }
 }
 
