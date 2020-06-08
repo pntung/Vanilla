@@ -8,7 +8,7 @@
 
 import Foundation
 import RealmSwift
-
+import MapKit
 
 
 class VanillaDataManager {
@@ -26,8 +26,21 @@ class VanillaDataManager {
             self.realm.add(pos)
         }
         
-        let postionList: Results<PositionInfo> = self.realm.objects(PositionInfo.self)
+        //let postionList: Results<PositionInfo> = self.realm.objects(PositionInfo.self)
         //print("----------------- list: %@", postionList)
+    }
+    
+    func getLocationArray() -> [CLLocationCoordinate2D] {
+        var coordinateArray: [CLLocationCoordinate2D] = []
+        
+        
+        let postionList: Results<PositionInfo> = self.realm.objects(PositionInfo.self)
+        for positionInfo in postionList {
+            let coor = CLLocationCoordinate2D(latitude: positionInfo.latititude, longitude: positionInfo.longtitude)
+            coordinateArray.append(coor)
+        }
+        
+        return coordinateArray
     }
     
 }

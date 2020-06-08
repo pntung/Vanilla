@@ -12,6 +12,8 @@ import MapKit
 class ViewController: UIViewController {
     @IBOutlet weak var vanillaMapView: MKMapView!
     
+    var polyline: MKPolyline?
+    
     fileprivate let locationManager: CLLocationManager = {
         let manager = CLLocationManager()
         manager.requestWhenInUseAuthorization()
@@ -34,6 +36,8 @@ class ViewController: UIViewController {
         self.vanillaMapView.showsUserLocation = true
         self.vanillaMapView.showsCompass = true
         self.vanillaMapView.showsScale = true
+        self.vanillaMapView.isZoomEnabled = true
+        self.vanillaMapView.delegate = self
         currentLocation()
     }
     
@@ -48,10 +52,59 @@ class ViewController: UIViewController {
                 
             }
             
-            locationManager.startUpdatingLocation()
+            
         }
     }
+    
+    @IBAction func startButtonPressed(_ sender: Any) {
+        locationManager.startUpdatingLocation()
+    }
+    
+    @IBAction func stopButtonPressed(_ sender: Any) {
+        locationManager.stopUpdatingLocation()
+        drawLine(VanillaDataManager.sharedInstance.getLocationArray())
+    }
+    
+    @IBAction func sendlogButtonPressed(_ sender: Any) {
+    }
+    
+    func drawLine(_ coordinateArr: [CLLocationCoordinate2D]) {
+        drawLineSubroutine(coordinateArr)
+    }
+    
+    func drawLineSubroutine(_ coordinateArr: [CLLocationCoordinate2D]) {
+        // remove polyline if one exists
+        if let polyline = self.polyline {
+            self.vanillaMapView.removeOverlay(polyline)
+        }
+        
+        let cordinates = coordinateArr
+        // create a polyline with all cooridnates
+        let mkPolyLine: MKPolyline = MKPolyline(coordinates: cordinates, count: cordinates.count)
+        self.vanillaMapView.addOverlay(mkPolyLine)
+        self.polyline = mkPolyLine
 
+        
+        
+    }
+
+}
+
+extension ViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        
+        if let polyline = overlay as? MKPolyline {
+            let polylineRenderer = MKPolylineRenderer(polyline: polyline)
+            polylineRenderer.strokeColor = UIColor.red
+            polylineRenderer.lineWidth = 3
+            
+            return polylineRenderer
+        }
+        
+        return MKPolylineRenderer()
+    }
+    
 }
 
 //MARK: - CLLocationManagerDelegate Methods
@@ -62,7 +115,7 @@ extension ViewController: CLLocationManagerDelegate {
         let coordinateRegion = MKCoordinateRegion(center: currentLocation, latitudinalMeters: 800, longitudinalMeters: 800)
         self.vanillaMapView.setRegion(coordinateRegion, animated: true)
         
-        //locationManager.stopUpdatingLocation()
+        
         print("--------- Coordinator: %@", currentLocation)
         
         let pos = PositionInfo();

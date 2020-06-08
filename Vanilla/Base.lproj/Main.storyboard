@@ -17,14 +17,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vih-Rg-lFm" customClass="MKMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="594"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HzP-dN-U2e">
+                                <rect key="frame" x="46" y="617" width="34" height="30"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JzQ-AZ-Rkx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Adx-La-yia">
+                                <rect key="frame" x="125" y="617" width="96" height="30"/>
+                                <state key="normal" title="Stop"/>
+                                <connections>
+                                    <action selector="stopButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l2A-Xh-g9H"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zWI-8W-Rtb">
+                                <rect key="frame" x="264" y="617" width="65" height="30"/>
+                                <state key="normal" title="Send Log"/>
+                                <connections>
+                                    <action selector="sendlogButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J0F-cE-eDe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="vih-Rg-lFm" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="21o-9v-zTU"/>
+                            <constraint firstItem="Adx-La-yia" firstAttribute="top" secondItem="vih-Rg-lFm" secondAttribute="bottom" constant="23" id="1F0-5R-31L"/>
+                            <constraint firstItem="vih-Rg-lFm" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-73" id="21o-9v-zTU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Adx-La-yia" secondAttribute="bottom" constant="20" id="81a-Nj-T7G"/>
+                            <constraint firstItem="HzP-dN-U2e" firstAttribute="top" secondItem="vih-Rg-lFm" secondAttribute="bottom" constant="23" id="EBj-iv-hB4"/>
+                            <constraint firstItem="HzP-dN-U2e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="46" id="Hzx-3s-2tM"/>
+                            <constraint firstItem="Adx-La-yia" firstAttribute="leading" secondItem="HzP-dN-U2e" secondAttribute="trailing" constant="45" id="JTk-dj-6yn"/>
+                            <constraint firstItem="zWI-8W-Rtb" firstAttribute="leading" secondItem="Adx-La-yia" secondAttribute="trailing" constant="43" id="Jor-gD-Tku"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zWI-8W-Rtb" secondAttribute="bottom" constant="20" id="QDJ-hT-jYf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="HzP-dN-U2e" secondAttribute="bottom" constant="20" id="QIx-Hk-NG6"/>
+                            <constraint firstItem="zWI-8W-Rtb" firstAttribute="top" secondItem="vih-Rg-lFm" secondAttribute="bottom" constant="23" id="QPT-nI-TBv"/>
+                            <constraint firstItem="zWI-8W-Rtb" firstAttribute="leading" secondItem="Adx-La-yia" secondAttribute="trailing" constant="43" id="bZV-Ba-jwx"/>
                             <constraint firstItem="vih-Rg-lFm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="m1q-vi-mOd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zWI-8W-Rtb" secondAttribute="trailing" constant="46" id="tpD-m7-2ce"/>
                             <constraint firstItem="vih-Rg-lFm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="uF8-3Z-idT"/>
                             <constraint firstItem="vih-Rg-lFm" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="zZd-Ne-TkY"/>
                         </constraints>
