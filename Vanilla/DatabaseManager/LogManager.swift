@@ -23,10 +23,10 @@ class LogManager {
     }
     
     func saveLogInfo(_ text: String) {
-        os_log(.error, log: log, "%@", text)
+        os_log(.error, log: log, "%{public}@", text)
     }
     
     func saveLogPositionInfos(_ posList: [PositionInfo]) {
-        os_log(.error, log: log, "%@", posList)
+        os_log(.error, log: log, "%{public}@", posList)
     }
 }
