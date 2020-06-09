@@ -68,6 +68,11 @@ class ViewController: UIViewController {
         locationManager.stopUpdatingLocation()
         LogManager.sharedInstance.saveLogInfo("Stop GPS and draw path with co-ordinates")
         drawLine(VanillaDataManager.sharedInstance.getLocationArray())
+        
+        let postList = VanillaDataManager.sharedInstance.getPositionsFromDB()
+        let str = String(format: "There are \(postList.count) records in database")
+        LogManager.sharedInstance.saveLogInfo(str)
+        LogManager.sharedInstance.saveLogPositionInfos(postList)
     }
     
     @IBAction func sendlogButtonPressed(_ sender: Any) {

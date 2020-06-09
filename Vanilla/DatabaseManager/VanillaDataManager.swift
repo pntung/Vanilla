@@ -24,6 +24,7 @@ class VanillaDataManager {
         
         try! self.realm.write {
             self.realm.add(pos)
+            LogManager.sharedInstance.saveLogInfo("Inserted successfully")
         }
         
     }
@@ -36,6 +37,10 @@ class VanillaDataManager {
         for positionInfo in postionList {
             let coor = CLLocationCoordinate2D(latitude: positionInfo.latititude, longitude: positionInfo.longtitude)
             coordinateArray.append(coor)
+        }
+        
+        if coordinateArray.count == 0 {
+            LogManager.sharedInstance.saveLogInfo("Database is empty or it get the issue")
         }
         
         return coordinateArray
@@ -51,7 +56,7 @@ class VanillaDataManager {
         }
         
         if posList.count == 0 {
-            LogManager.sharedInstance.saveLogInfo("Database is empty or it get error")
+            LogManager.sharedInstance.saveLogInfo("Database is empty or it get the issue")
         }
         
         return posList

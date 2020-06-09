@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         LogManager.sharedInstance.saveLogInfo("App enter forground")
         let str = String(format: "There are \(postList.count) records in database")
         LogManager.sharedInstance.saveLogInfo(str)
-        LogManager.sharedInstance.saveLogPositionInfos(postList)
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
