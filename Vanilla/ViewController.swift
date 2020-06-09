@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.log = OSLog.init(subsystem: "com.montre.duoveo.log", category: "Terra_Log")
+        self.log = OSLog(subsystem: "com.montre.duoveo.log", category: "Terra_Log")
         
         self.sendLogButton.isHidden = true
         setupMapView()
@@ -126,13 +126,14 @@ extension ViewController: CLLocationManagerDelegate {
         
         //print("--------- Coordinator: %@", currentLocation)
         
-//        if #available(iOS 12.0, *) {
-//            os_log(.info, log: self.log ?? OSLog.default, "Latitude: %f - Longitude: %f", currentLocation.latitude, currentLocation.longitude)
-//        } else {
-//            // Fallback on earlier versions
-//        }
-        os_log("--------- Coordinator")
         
+        if #available(iOS 12.0, *) {
+            os_log(.error, log: self.log!, "Latitude: %f - Longitude: %f", currentLocation.latitude, currentLocation.longitude)
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        // save current location to DB
         let pos = PositionInfo();
         pos.longtitude = currentLocation.longitude
         pos.latititude = currentLocation.latitude
