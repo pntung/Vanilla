@@ -8,14 +8,13 @@
 
 import UIKit
 import MapKit
-import os.log
+
 
 class ViewController: UIViewController {
     @IBOutlet weak var vanillaMapView: MKMapView!
     @IBOutlet weak var sendLogButton: UIButton!
     
     var polyline: MKPolyline?
-    var log: OSLog?
     
     fileprivate let locationManager: CLLocationManager = {
         let manager = CLLocationManager()
@@ -26,8 +25,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.log = OSLog(subsystem: "com.montre.duoveo.log", category: "Terra_Log")
-        
         self.sendLogButton.isHidden = true
         setupMapView()
     }
@@ -64,10 +61,12 @@ class ViewController: UIViewController {
     
     @IBAction func startButtonPressed(_ sender: Any) {
         locationManager.startUpdatingLocation()
+        LogManager.sharedInstance.saveLogInfo("Start GPS")
     }
     
     @IBAction func stopButtonPressed(_ sender: Any) {
         locationManager.stopUpdatingLocation()
+        LogManager.sharedInstance.saveLogInfo("Stop GPS and draw path with co-ordinates")
         drawLine(VanillaDataManager.sharedInstance.getLocationArray())
     }
     
@@ -123,15 +122,7 @@ extension ViewController: CLLocationManagerDelegate {
         let coordinateRegion = MKCoordinateRegion(center: currentLocation, latitudinalMeters: 800, longitudinalMeters: 800)
         self.vanillaMapView.setRegion(coordinateRegion, animated: true)
         
-        
-        //print("--------- Coordinator: %@", currentLocation)
-        
-        
-        if #available(iOS 12.0, *) {
-            os_log(.error, log: self.log!, "Latitude: %f - Longitude: %f", currentLocation.latitude, currentLocation.longitude)
-        } else {
-            // Fallback on earlier versions
-        }
+        LogManager.sharedInstance.saveLogCurrentLocation(currentLocation)
         
         // save current location to DB
         let pos = PositionInfo();

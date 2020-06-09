@@ -17,6 +17,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         return true
     }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        let postList = VanillaDataManager.sharedInstance.getPositionsFromDB()
+        LogManager.sharedInstance.saveLogInfo("App enter forground")
+        let str = String(format: "There are \(postList.count) records in database")
+        LogManager.sharedInstance.saveLogInfo(str)
+        LogManager.sharedInstance.saveLogPositionInfos(postList)
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        let postList = VanillaDataManager.sharedInstance.getPositionsFromDB()
+        LogManager.sharedInstance.saveLogInfo("App enter background")
+        let str = String(format: "There are \(postList.count) records in database")
+        LogManager.sharedInstance.saveLogInfo(str)
+    }
 
     // MARK: UISceneSession Lifecycle
 

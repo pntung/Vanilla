@@ -15,6 +15,7 @@
 		842FF0A72487B54D00771072 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842FF0A52487B54D00771072 /* Main.storyboard */; };
 		842FF0A92487B55A00771072 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 842FF0A82487B55A00771072 /* Assets.xcassets */; };
 		842FF0AC2487B55A00771072 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842FF0AA2487B55A00771072 /* LaunchScreen.storyboard */; };
+		849D7919248F38A10099EC94 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D7918248F38A10099EC94 /* LogManager.swift */; };
 		84FFF76D2489009B00E3C8B5 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 84FFF76C2489009A00E3C8B5 /* Podfile */; };
 		92749C85AB087EF87D7EC8B1 /* Pods_Vanilla.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05F13596CCA921F675C9D602 /* Pods_Vanilla.framework */; };
 /* End PBXBuildFile section */
@@ -31,6 +32,7 @@
 		842FF0A82487B55A00771072 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		842FF0AB2487B55A00771072 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		842FF0AD2487B55A00771072 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		849D7918248F38A10099EC94 /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
 		84FFF76C2489009A00E3C8B5 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		C865F72FA9A1B2B4F2ED83D5 /* Pods-Vanilla.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vanilla.debug.xcconfig"; path = "Target Support Files/Pods-Vanilla/Pods-Vanilla.debug.xcconfig"; sourceTree = "<group>"; };
 		DF65AA549CA007A14BE24447 /* Pods-Vanilla.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vanilla.release.xcconfig"; path = "Target Support Files/Pods-Vanilla/Pods-Vanilla.release.xcconfig"; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 			children = (
 				840DF4AB2489EE060063F4DA /* VanillaDataManager.swift */,
 				840DF4AD2489F8BD0063F4DA /* PositionInfo.swift */,
+				849D7918248F38A10099EC94 /* LogManager.swift */,
 			);
 			path = DatabaseManager;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				849D7919248F38A10099EC94 /* LogManager.swift in Sources */,
 				842FF0A42487B54D00771072 /* ViewController.swift in Sources */,
 				840DF4AE2489F8BD0063F4DA /* PositionInfo.swift in Sources */,
 				840DF4AC2489EE060063F4DA /* VanillaDataManager.swift in Sources */,
@@ -377,7 +381,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KPLAQH934B;
 				INFOPLIST_FILE = Vanilla/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -399,7 +403,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KPLAQH934B;
 				INFOPLIST_FILE = Vanilla/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
