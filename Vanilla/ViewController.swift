@@ -13,6 +13,8 @@ import MapKit
 class ViewController: UIViewController {
     @IBOutlet weak var vanillaMapView: MKMapView!
     @IBOutlet weak var sendLogButton: UIButton!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var stopButton: UIButton!
     
     var polyline: MKPolyline?
     
@@ -26,6 +28,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.sendLogButton.isHidden = true
+        self.startButton.isEnabled = true
+        self.stopButton.isEnabled = false
         setupMapView()
     }
     
@@ -60,11 +64,17 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startButtonPressed(_ sender: Any) {
+        self.startButton.isEnabled = false
+        self.stopButton.isEnabled = true
+        
         locationManager.startUpdatingLocation()
         LogManager.sharedInstance.saveLogInfo("Start GPS")
     }
     
     @IBAction func stopButtonPressed(_ sender: Any) {
+        self.startButton.isEnabled = true
+        self.stopButton.isEnabled = false
+        
         locationManager.stopUpdatingLocation()
         LogManager.sharedInstance.saveLogInfo("Stop GPS and draw path with co-ordinates")
         drawLine(VanillaDataManager.sharedInstance.getLocationArray())

@@ -65,6 +65,8 @@
                     </view>
                     <connections>
                         <outlet property="sendLogButton" destination="zWI-8W-Rtb" id="Fid-wE-eby"/>
+                        <outlet property="startButton" destination="HzP-dN-U2e" id="Rtm-nI-ioX"/>
+                        <outlet property="stopButton" destination="Adx-La-yia" id="Jf6-fW-206"/>
                         <outlet property="vanillaMapView" destination="vih-Rg-lFm" id="RbO-qV-o6O"/>
                     </connections>
                 </viewController>
