@@ -76,6 +76,9 @@ class LogManager {
         
         os_log(.error, log: log, "%{public}@", strContent)
         
+        if strContent == "" {
+            return
+        }
         
         let eventName = "VanillaLog"
         Analytics.logEvent(eventName, parameters:
