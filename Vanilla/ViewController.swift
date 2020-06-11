@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.sendLogButton.isHidden = true
+        self.sendLogButton.isEnabled = true
         self.startButton.isEnabled = true
         self.stopButton.isEnabled = false
         setupMapView()
@@ -86,6 +86,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func sendlogButtonPressed(_ sender: Any) {
+        LogManager.sharedInstance.sendLogToFirebase()
     }
     
     func drawLine(_ coordinateArr: [CLLocationCoordinate2D]) {
