@@ -81,6 +81,11 @@ class LogManager {
         }
         
         let eventName = "VanillaLog"
+//        Analytics.logEvent(eventName, parameters:
+//            [
+//                "data": strContent
+//            ]
+//        )
         Analytics.logEvent(eventName, parameters:
             [
                 "data": strContent

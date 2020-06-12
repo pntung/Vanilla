@@ -12,7 +12,7 @@ import CoreLocation
 
 
 class VanillaDataManager {
-    static let sharedInstance: VanillaDataManager = VanillaDataManager()
+    static let shared: VanillaDataManager = VanillaDataManager()
     
     let realm = try! Realm()
     
@@ -24,9 +24,15 @@ class VanillaDataManager {
         
         try! self.realm.write {
             self.realm.add(pos)
-            LogManager.sharedInstance.saveLogInfo("Inserted successfully")
+            LogVC.save("Inserted successfully")
         }
         
+    }
+    
+    func removeAllRecord() {
+        try! self.realm.write {
+            self.realm.deleteAll()
+        }
     }
     
     func getLocationArray() -> [CLLocationCoordinate2D] {
@@ -40,26 +46,22 @@ class VanillaDataManager {
         }
         
         if coordinateArray.count == 0 {
-            LogManager.sharedInstance.saveLogInfo("Database is empty or it get the issue")
+            LogVC.save("Database is empty or it get the issue")
         }
         
         return coordinateArray
     }
     
     
-    func getPositionsFromDB() -> [PositionInfo] {
+    func getPositionsFromDB(at: String) {
+        LogVC.save("GPS Records after [\(at)]")
         var posList: [PositionInfo] = []
         let positions : Results<PositionInfo> = self.realm.objects(PositionInfo.self)
         
         for positionInfo in positions {
+            LogVC.save(">>>>>> \(positionInfo)")
             posList.append(positionInfo)
         }
-        
-        if posList.count == 0 {
-            LogManager.sharedInstance.saveLogInfo("Database is empty or it get the issue")
-        }
-        
-        return posList
     }
     
 }

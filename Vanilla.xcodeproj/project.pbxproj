@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5476B91A24935FFD000DF6A5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5476B91924935FFD000DF6A5 /* Logger.swift */; };
+		5476B91C24936263000DF6A5 /* ApiServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5476B91B24936263000DF6A5 /* ApiServices.swift */; };
+		5476B91E249362D2000DF6A5 /* UploadFileRES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5476B91D249362D2000DF6A5 /* UploadFileRES.swift */; };
+		5476B920249363C3000DF6A5 /* BaseRES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5476B91F249363C3000DF6A5 /* BaseRES.swift */; };
+		5476B922249363FC000DF6A5 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5476B921249363FC000DF6A5 /* Utils.swift */; };
+		5476B92424936723000DF6A5 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5476B92324936723000DF6A5 /* RealmSwift.framework */; };
 		840DF4AC2489EE060063F4DA /* VanillaDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840DF4AB2489EE060063F4DA /* VanillaDataManager.swift */; };
 		840DF4AE2489F8BD0063F4DA /* PositionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840DF4AD2489F8BD0063F4DA /* PositionInfo.swift */; };
 		842FF0A02487B54D00771072 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842FF09F2487B54D00771072 /* AppDelegate.swift */; };
@@ -23,6 +29,12 @@
 
 /* Begin PBXFileReference section */
 		05F13596CCA921F675C9D602 /* Pods_Vanilla.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vanilla.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5476B91924935FFD000DF6A5 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		5476B91B24936263000DF6A5 /* ApiServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServices.swift; sourceTree = "<group>"; };
+		5476B91D249362D2000DF6A5 /* UploadFileRES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFileRES.swift; sourceTree = "<group>"; };
+		5476B91F249363C3000DF6A5 /* BaseRES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRES.swift; sourceTree = "<group>"; };
+		5476B921249363FC000DF6A5 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		5476B92324936723000DF6A5 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		840DF4AB2489EE060063F4DA /* VanillaDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VanillaDataManager.swift; sourceTree = "<group>"; };
 		840DF4AD2489F8BD0063F4DA /* PositionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionInfo.swift; sourceTree = "<group>"; };
 		842FF09C2487B54D00771072 /* Vanilla.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vanilla.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5476B92424936723000DF6A5 /* RealmSwift.framework in Frameworks */,
 				92749C85AB087EF87D7EC8B1 /* Pods_Vanilla.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,6 +71,11 @@
 				840DF4AB2489EE060063F4DA /* VanillaDataManager.swift */,
 				840DF4AD2489F8BD0063F4DA /* PositionInfo.swift */,
 				849D7918248F38A10099EC94 /* LogManager.swift */,
+				5476B91924935FFD000DF6A5 /* Logger.swift */,
+				5476B91B24936263000DF6A5 /* ApiServices.swift */,
+				5476B91D249362D2000DF6A5 /* UploadFileRES.swift */,
+				5476B91F249363C3000DF6A5 /* BaseRES.swift */,
+				5476B921249363FC000DF6A5 /* Utils.swift */,
 			);
 			path = DatabaseManager;
 			sourceTree = "<group>";
@@ -109,6 +127,7 @@
 		C1E0F284C7F64D9950929A4D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5476B92324936723000DF6A5 /* RealmSwift.framework */,
 				05F13596CCA921F675C9D602 /* Pods_Vanilla.framework */,
 			);
 			name = Frameworks;
@@ -252,9 +271,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				849D7919248F38A10099EC94 /* LogManager.swift in Sources */,
+				5476B920249363C3000DF6A5 /* BaseRES.swift in Sources */,
 				842FF0A42487B54D00771072 /* ViewController.swift in Sources */,
+				5476B91C24936263000DF6A5 /* ApiServices.swift in Sources */,
 				840DF4AE2489F8BD0063F4DA /* PositionInfo.swift in Sources */,
 				840DF4AC2489EE060063F4DA /* VanillaDataManager.swift in Sources */,
+				5476B91A24935FFD000DF6A5 /* Logger.swift in Sources */,
+				5476B922249363FC000DF6A5 /* Utils.swift in Sources */,
+				5476B91E249362D2000DF6A5 /* UploadFileRES.swift in Sources */,
 				842FF0A02487B54D00771072 /* AppDelegate.swift in Sources */,
 				842FF0A22487B54D00771072 /* SceneDelegate.swift in Sources */,
 			);
@@ -411,7 +435,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.1;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ewrist.testgps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -435,7 +459,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.1;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ewrist.testgps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

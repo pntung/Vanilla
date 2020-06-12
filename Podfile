@@ -9,6 +9,8 @@ target 'Vanilla' do
    pod 'RealmSwift'
    pod 'Firebase/Crashlytics'
    pod 'Firebase/Analytics'
+   pod 'Alamofire', '4.9.1'
+   pod 'ObjectMapper'
 end
 
 
